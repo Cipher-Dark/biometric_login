@@ -1,26 +1,17 @@
 import 'package:biometric_login/auth/bio_auth.dart';
 import 'package:biometric_login/provider/auth_provider.dart';
-import 'package:biometric_login/screens/setting.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class Home extends StatelessWidget {
-  const Home({super.key});
+class Setting extends StatelessWidget {
+  const Setting({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text("Home"),
-        actions: [
-          IconButton(
-            icon: Icon(Icons.settings),
-            onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (_) => Setting()));
-            },
-          ),
-        ],
+        title: Text("Setting"),
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
