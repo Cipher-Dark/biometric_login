@@ -22,12 +22,14 @@ class _SplashScreenState extends State<SplashScreen> {
 
         await authProvider.loadPreferences();
         if (authProvider.getEnableBio) {
-          BioAuth().setBiometric(context).then((_) {
+          final getBio = await BioAuth().setBiometric(context);
+
+          if (getBio) {
             Navigator.pushReplacement(
               context,
               MaterialPageRoute(builder: (_) => const Home()),
             );
-          });
+          }
         } else {
           Navigator.pushReplacement(
             context,
