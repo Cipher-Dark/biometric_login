@@ -23,25 +23,29 @@ class Setting extends StatelessWidget {
                 Text("Enable Biometric Auth"),
                 Consumer<AuthProvider>(
                   builder: (ctx, provider, __) {
-                    return Switch.adaptive(
-                      value: provider.getEnableBio,
-                      onChanged: (value) async {
-                        bool isAuthenticated = await BioAuth().setBiometric(context);
-                        if (isAuthenticated) {
-                          provider.toggleEnableBio();
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
-                              behavior: SnackBarBehavior.floating,
-                              content: Text(
-                                "Biometric authentication is ${!provider.getEnableBio ? "Enabled" : "Disabled"}",
-                                textAlign: TextAlign.center,
+                    if (!provider.isBiometricAvailable) {
+                      return Text("Not Available");
+                    } else {
+                      return Switch.adaptive(
+                        value: provider.getEnableBio,
+                        onChanged: (value) async {
+                          bool isAuthenticated = await BioAuth().setBiometric(context);
+                          if (isAuthenticated) {
+                            provider.toggleEnableBio();
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                behavior: SnackBarBehavior.floating,
+                                content: Text(
+                                  "Biometric authentication is ${!provider.getEnableBio ? "Enabled" : "Disabled"}",
+                                  textAlign: TextAlign.center,
+                                ),
+                                duration: Duration(seconds: 2),
                               ),
-                              duration: Duration(seconds: 2),
-                            ),
-                          );
-                        }
-                      },
-                    );
+                            );
+                          }
+                        },
+                      );
+                    }
                   },
                 ),
               ],
