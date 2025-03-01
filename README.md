@@ -1,16 +1,10 @@
 # biometric_login
+This is a Flutter project for Biometric authentication in mobile devices.
 
-A new Flutter project.
+## Setup Instructions  
+1. Simply run the APK file included in the releases section.  
+2. Use the app.  
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Key Features Implemented  
+1. Users can enable or disable the authentication system as they please.  
+2. If fingerprint or Face ID is not working, users can use alternative options such as PIN, pattern, or any other security method set on the device.  
